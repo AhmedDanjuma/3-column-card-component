@@ -1,0 +1,164 @@
+// *Colors
+
+// *Primary
+
+$bright-orange: hsl(31, 77%, 52%);
+$dark-cyan: hsl(184, 100%, 22%);
+$very-dark-cyan: hsl(179, 100%, 13%);
+
+// *Neutral
+
+$transparent-white: hsla(0, 0%, 100%, 0.75);
+$very-light-gray: hsl(0, 0%, 95%);
+
+// *Body Copy
+
+$fs-base: 15px;
+
+// *Font Weight
+
+$fw-regular: 400;
+$fw-bold: 700;
+
+// *mixins
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// font-family: 'Big Shoulders Display', cursive;
+// font-family: 'Lexend Deca', sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $fs-base;
+}
+
+body {
+  background-color: $very-light-gray;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  @include flex;
+  font-weight: $fw-regular;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 4rem 0;
+
+  &__container {
+    padding: 2.5rem;
+
+    &--sedan {
+      background-color: $bright-orange;
+      border-top-right-radius: 0.5rem;
+      border-top-left-radius: 0.5rem;
+    }
+    &--suv {
+      background-color: $dark-cyan;
+    }
+    &--luxury {
+      background-color: $very-dark-cyan;
+      border-bottom-right-radius: 0.5rem;
+      border-bottom-left-radius: 0.5rem;
+    }
+  }
+
+  img {
+    width: 3.2rem;
+  }
+
+  &__heading {
+    color: $very-light-gray;
+    margin-top: 1rem;
+    margin-bottom: 1.3rem;
+    font-weight: $fw-bold;
+    text-transform: uppercase;
+    font-family: "Big Shoulders Display", cursive;
+    font-size: 2.5rem;
+  }
+  &__paragraph {
+    color: $transparent-white;
+    margin-bottom: 1.5rem;
+    line-height: 1.5rem;
+  }
+  &__btn {
+    background-color: $very-light-gray;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.8rem 1.5rem;
+    font-weight: $fw-bold;
+
+    &:hover {
+      color: $very-light-gray;
+      background-color: inherit;
+      border: 2.5px solid $very-light-gray;
+    }
+
+    &--sedan {
+      color: $bright-orange;
+    }
+    &--suv {
+      color: $dark-cyan;
+    }
+    &--luxury {
+      color: $very-dark-cyan;
+    }
+  }
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+
+  a {
+    color: $dark-cyan;
+    text-decoration: none;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .card {
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+    height: 500px;
+
+    &__container {
+      padding-left: 3rem;
+      padding-right: 3rem;
+      img {
+        width: 4.2rem;
+      }
+      &--sedan {
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 0.5rem;
+      }
+      &--luxury {
+        border-top-right-radius: 0.5rem;
+        border-bottom-left-radius: 0;
+      }
+    }
+    &__heading {
+      margin-top: 1.3rem;
+      margin-bottom: 1.5rem;
+    }
+    &__paragraph {
+      margin-bottom: 7rem;
+      line-height: 1.7rem;
+    }
+    &__btn {
+      padding: 1rem 2rem;
+      font-size: 0.8rem;
+    }
+  }
+}
